@@ -1,6 +1,10 @@
 @import "tailwindcss";
 
+/* @theme inline {
+  --font-playfair: var(--font-instrument);
+  --font-outfit: var(--font-dm-sans);
+} */
+
 html {
   scroll-behavior: smooth;
-  /* background-color: #080a10; */
 }

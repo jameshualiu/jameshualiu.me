@@ -22,7 +22,16 @@ function LinkedInIcon() {
 
 function ResumeIcon() {
   return (
-    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg
+      width="15"
+      height="15"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
       <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
       <polyline points="14 2 14 8 20 8" />
       <line x1="16" y1="13" x2="8" y2="13" />
@@ -34,7 +43,11 @@ function ResumeIcon() {
 
 const lineVariants = {
   hidden: { opacity: 0, y: 28 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const } },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: [0.25, 0.1, 0.25, 1] as const },
+  },
 };
 
 const headlineVariants = {
@@ -70,10 +83,22 @@ export default function Hero() {
         </ul>
 
         <div className="flex items-center gap-3">
-          <Link href="https://github.com/jameshualiu" target="_blank" rel="noopener noreferrer" className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200" aria-label="GitHub">
+          <Link
+            href="https://github.com/jameshualiu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200"
+            aria-label="GitHub"
+          >
             <GitHubIcon />
           </Link>
-          <Link href="https://linkedin.com/in/jameshualiu" target="_blank" rel="noopener noreferrer" className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200" aria-label="LinkedIn">
+          <Link
+            href="https://linkedin.com/in/jameshualiu"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200"
+            aria-label="LinkedIn"
+          >
             <LinkedInIcon />
           </Link>
           <Link
@@ -107,8 +132,12 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            <motion.span className="block" variants={lineVariants}>Building</motion.span>
-            <motion.span className="block" variants={lineVariants}>things that</motion.span>
+            <motion.span className="block" variants={lineVariants}>
+              Building
+            </motion.span>
+            <motion.span className="block" variants={lineVariants}>
+              things that
+            </motion.span>
             <motion.span className="block" variants={lineVariants}>
               <em className="text-[#4a6ef5]">matter.</em>
             </motion.span>
@@ -120,13 +149,15 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.62 }}
           >
-            <span className="text-[#b8bdd4] font-normal">Studying Computer Science</span>{" "}
-            at UMass Amherst. I build at the intersection of computer vision,
-            ML, and real products people actually use.
+            <span className="text-[#b8bdd4] font-normal">
+              Computer Science at UMass Amherst.
+            </span>{" "}
+            I build at the intersection of computer vision, ML, and real
+            products people actually use.
           </motion.p>
 
           <motion.div
-            className="flex items-center gap-3 mb-8 sm:mb-0"
+            className="flex items-center gap-3"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.74 }}
@@ -146,6 +177,26 @@ export default function Hero() {
               Say hello
             </MotionLink>
           </motion.div>
+
+          <motion.div
+            className="flex items-center gap-2.5 mt-8 mb-8 sm:mb-0"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+          >
+            <motion.div
+              className="w-px h-7 bg-[#3a4060]"
+              animate={{ y: [0, 6, 0] }}
+              transition={{
+                duration: 1.8,
+                repeat: Infinity,
+                ease: "easeInOut",
+              }}
+            />
+            <span className="text-[#4a5070] text-[11px] uppercase tracking-[0.1em]">
+              Scroll to explore
+            </span>
+          </motion.div>
         </div>
 
         {/* Mobile: horizontal scroll strip */}
@@ -157,50 +208,64 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.86 }}
         >
           <div className="min-w-[200px] bg-[#0b0e20] border border-[#4a6ef5]/20 rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">Featured project</p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">Badminton AI Analyst</h3>
-            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">YOLOv8 · OpenCV · Gemini AI</p>
+            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+              Featured project
+            </p>
+            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
+              Badminton AI Analyst
+            </h3>
+            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">
+              YOLOv8 · OpenCV · Gemini AI
+            </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
               <span className="text-[#5a6080] text-[11px]">Live</span>
             </div>
           </div>
           <div className="min-w-[180px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">HackUMass XIII</p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">Lectro</h3>
-            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">Accessibility-focused lecture tool</p>
+            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+              HackUMass XIII
+            </p>
+            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
+              Lectro
+            </h3>
+            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">
+              Accessibility-focused lecture tool
+            </p>
           </div>
         </motion.div>
 
         {/* Desktop: stacked */}
         <div className="hidden sm:flex sm:flex-col sm:items-end sm:gap-4">
           <div className="w-60 bg-[#0b0e20] border border-[#4a6ef5]/20 rounded-2xl p-5">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">Featured project</p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">Badminton AI Analyst</h3>
-            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">YOLOv8 · OpenCV · Gemini AI<br />Real-time court tracking</p>
+            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+              Featured project
+            </p>
+            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
+              Badminton AI Analyst
+            </h3>
+            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">
+              YOLOv8 · OpenCV · Gemini AI
+              <br />
+              Real-time court tracking
+            </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
               <span className="text-[#5a6080] text-[11px]">Live</span>
             </div>
           </div>
           <div className="w-[220px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-5">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">HackUMass XIII</p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">Lectro</h3>
-            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">Accessibility-focused lecture tool</p>
+            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+              HackUMass XIII
+            </p>
+            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
+              Lectro
+            </h3>
+            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">
+              Accessibility-focused lecture tool
+            </p>
           </div>
         </div>
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-7 left-6 sm:left-12 flex items-center gap-2.5">
-        <motion.div
-          className="w-px h-7 bg-[#1e2235]"
-          animate={{ y: [0, 6, 0] }}
-          transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
-        />
-        <span className="text-[#22263a] text-[11px] uppercase tracking-[0.1em]">
-          Scroll to explore
-        </span>
       </div>
     </section>
   );
