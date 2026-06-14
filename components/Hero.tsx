@@ -50,16 +50,16 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <span className="font-playfair text-[#e8ecf8] text-lg tracking-tight">
+        <span className="glass-pill rounded-full px-[18px] py-2 text-sm font-bold text-[#2b2b40]">
           James Liu
         </span>
 
-        <ul className="hidden sm:flex items-center gap-8 list-none">
+        <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none">
           {["Skills", "Work", "Projects", "About", "Contact"].map((item) => (
             <li key={item}>
               <Link
                 href={`#${item.toLowerCase()}`}
-                className="text-[#5a6080] text-sm hover:text-[#e8ecf8] transition-colors duration-200 tracking-wide"
+                className="block text-[#4d5780] text-sm px-[18px] py-2 rounded-full hover:text-[#2b2b40] transition-colors duration-200"
               >
                 {item}
               </Link>
@@ -72,7 +72,7 @@ export default function Hero() {
             href="https://github.com/jameshualiu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200"
+            className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
             aria-label="GitHub"
           >
             <GitHubIcon />
@@ -81,7 +81,7 @@ export default function Hero() {
             href="https://linkedin.com/in/jameshualiu"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-[#5a6080] hover:text-[#e8ecf8] transition-colors duration-200"
+            className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
             aria-label="LinkedIn"
           >
             <LinkedInIcon />
@@ -90,7 +90,7 @@ export default function Hero() {
             href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[#c0392b] text-[11px] border border-[#c0392b]/25 rounded-full px-3 py-1.5 hover:bg-[#c0392b]/10 transition-all duration-200 tracking-wide"
+            className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-1.5 hover:bg-white/60 transition-colors duration-200"
           >
             <ResumeIcon />
             <span className="hidden sm:inline">Resume</span>
@@ -102,18 +102,8 @@ export default function Hero() {
       <div className="relative flex-1 max-w-5xl mx-auto w-full flex flex-col sm:grid sm:grid-cols-2 sm:items-center pb-16">
         {/* Left — headline + CTA */}
         <div className="relative">
-          <svg
-            className="absolute -top-16 -left-12 w-[420px] h-[420px] pointer-events-none opacity-40 -z-10"
-            viewBox="0 0 400 400"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path d="M-20 380 C 120 360, 220 120, 420 30" stroke="#c0392b" strokeWidth="2" />
-            <circle cx="416" cy="30" r="4" fill="#c0392b" />
-          </svg>
-
           <motion.p
-            className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-5"
+            className="glass-pill inline-block text-[#6c5ce7] text-xs tracking-[0.16em] uppercase font-bold rounded-full px-4 py-1.5 mb-5"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
@@ -122,7 +112,7 @@ export default function Hero() {
           </motion.p>
 
           <motion.h1
-            className="font-playfair text-[52px] sm:text-[72px] leading-[0.94] text-[#e8ecf8] tracking-tight mb-7"
+            className="text-5xl sm:text-7xl font-extrabold leading-[1.05] text-[#2b2b40] tracking-tight mb-7"
             variants={headlineVariants}
             initial="hidden"
             animate="visible"
@@ -136,12 +126,12 @@ export default function Hero() {
           </motion.h1>
 
           <motion.p
-            className="text-[#8890b0] text-sm leading-[1.8] max-w-xs font-light tracking-wide mb-9"
+            className="text-[#4d5780] text-sm leading-[1.8] max-w-xs mb-9"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.62 }}
           >
-            <span className="text-[#b8bdd4] font-normal">
+            <span className="text-[#2b2b40] font-medium">
               CS @ UMass — computer vision &amp; machine learning.
             </span>{" "}
             I build software for the people using it, not the metrics
@@ -156,14 +146,14 @@ export default function Hero() {
           >
             <MotionLink
               href="#work"
-              className="bg-[#c0392b] text-white text-sm font-medium px-6 py-[11px] rounded-full hover:opacity-85 transition-opacity duration-200 tracking-wide"
+              className="bg-[#6c5ce7] text-white text-sm font-semibold px-6 py-[11px] rounded-full shadow-[0_8px_20px_rgba(108,92,231,0.32)] hover:opacity-90 transition-opacity duration-200"
               whileTap={{ scale: 0.96 }}
             >
               See my work
             </MotionLink>
             <MotionLink
               href="#contact"
-              className="text-[#5a6080] text-sm px-6 py-[11px] rounded-full border border-[#1e2235] hover:border-[#5a6080] hover:text-[#b8bdd4] transition-all duration-200 tracking-wide"
+              className="glass-pill text-[#2b2b40] text-sm font-semibold px-6 py-[11px] rounded-full hover:bg-white/60 transition-colors duration-200"
               whileTap={{ scale: 0.96 }}
             >
               Say hello
@@ -177,7 +167,7 @@ export default function Hero() {
             transition={{ duration: 0.5, delay: 0.9 }}
           >
             <motion.div
-              className="w-px h-7 bg-[#3a4060]"
+              className="w-px h-7 bg-white/60"
               animate={{ y: [0, 6, 0] }}
               transition={{
                 duration: 1.8,
@@ -185,7 +175,7 @@ export default function Hero() {
                 ease: "easeInOut",
               }}
             />
-            <span className="text-[#4a5070] text-[11px] uppercase tracking-[0.1em]">
+            <span className="text-[#4d5780] text-[11px] uppercase tracking-[0.1em]">
               Scroll to explore
             </span>
           </motion.div>
@@ -193,35 +183,34 @@ export default function Hero() {
 
         {/* Mobile: horizontal scroll strip */}
         <motion.div
-          className="flex gap-3 overflow-x-auto pb-2 sm:hidden"
-          style={{ scrollbarWidth: "none" }}
+          className="flex gap-3 overflow-x-auto pb-2 no-scrollbar sm:hidden"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.86 }}
         >
-          <div className="min-w-[200px] bg-[#0b0e20] border border-[#c0392b]/20 rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="glass-card min-w-[200px] rounded-[18px] p-4 flex-shrink-0">
+            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
               Featured project
             </p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
+            <h3 className="text-[#2b2b40] text-[15px] font-bold leading-tight mb-1.5">
               Badminton AI Analyst
             </h3>
-            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">
+            <p className="text-[#4d5780] text-[11px] leading-relaxed">
               YOLOv8 · OpenCV · Gemini AI
             </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
-              <span className="text-[#5a6080] text-[11px]">Live</span>
+              <span className="text-[#4d5780] text-[11px]">Live</span>
             </div>
           </div>
-          <div className="min-w-[180px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="glass-card min-w-[180px] rounded-[18px] p-4 flex-shrink-0">
+            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
               HackUMass XIII
             </p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
+            <h3 className="text-[#2b2b40] text-[15px] font-bold leading-tight mb-1.5">
               Lectro
             </h3>
-            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">
+            <p className="text-[#4d5780] text-[11px] leading-relaxed">
               Accessibility-focused lecture tool
             </p>
           </div>
@@ -229,31 +218,31 @@ export default function Hero() {
 
         {/* Desktop: stacked */}
         <div className="hidden sm:flex sm:flex-col sm:items-end sm:gap-4">
-          <div className="w-60 bg-[#0b0e20] border border-[#c0392b]/20 rounded-2xl p-5">
-            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="glass-card w-60 rounded-[18px] p-5">
+            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
               Featured project
             </p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
+            <h3 className="text-[#2b2b40] text-[17px] font-bold leading-tight mb-1.5">
               Badminton AI Analyst
             </h3>
-            <p className="text-[#6870a0] text-[11px] leading-relaxed font-light">
+            <p className="text-[#4d5780] text-[11px] leading-relaxed">
               YOLOv8 · OpenCV · Gemini AI
               <br />
               Real-time court tracking
             </p>
             <div className="flex items-center gap-2 mt-2">
               <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
-              <span className="text-[#5a6080] text-[11px]">Live</span>
+              <span className="text-[#4d5780] text-[11px]">Live</span>
             </div>
           </div>
-          <div className="w-[220px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-5">
-            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="glass-card w-[220px] rounded-[18px] p-5">
+            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
               HackUMass XIII
             </p>
-            <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
+            <h3 className="text-[#2b2b40] text-[17px] font-bold leading-tight mb-1.5">
               Lectro
             </h3>
-            <p className="text-[#5a6080] text-[11px] leading-relaxed font-light">
+            <p className="text-[#4d5780] text-[11px] leading-relaxed">
               Accessibility-focused lecture tool
             </p>
           </div>
