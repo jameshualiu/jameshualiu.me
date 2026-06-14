@@ -85,7 +85,7 @@ export default function Hero() {
                   {isActive && (
                     <motion.div
                       layoutId="nav-active-pill"
-                      className="absolute inset-0 bg-white rounded-full"
+                      className="absolute inset-0 bg-[#6c5ce7] rounded-full"
                       transition={{ type: "spring", stiffness: 400, damping: 32 }}
                     />
                   )}
@@ -94,7 +94,7 @@ export default function Hero() {
                     onClick={() => handleNavClick(id)}
                     className={`relative z-10 block text-sm px-[18px] py-2 rounded-full transition-colors duration-200 ${
                       isActive
-                        ? "text-[#2b2b40] font-semibold"
+                        ? "text-white font-semibold"
                         : "text-[#3b3f5c] hover:text-[#2b2b40]"
                     }`}
                   >
