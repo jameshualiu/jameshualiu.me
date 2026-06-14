@@ -18,8 +18,8 @@ export default function About() {
             <span className="text-[#b8bdd4] font-normal">
               [Placeholder bio — replace with your own introduction.]
             </span>{" "}
-            Write a few sentences about who you are, what you're studying,
-            and the kinds of problems, teams, or roles you're looking for.
+            Write a few sentences about who you are, what you&apos;re studying,
+            and the kinds of problems, teams, or roles you&apos;re looking for.
             Mention the areas you care about most and anything that makes
             your story memorable to a reader.
           </p>
