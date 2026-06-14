@@ -110,7 +110,7 @@ export default function Hero() {
               href="https://github.com/jameshualiu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
+              className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
               aria-label="GitHub"
             >
               <GitHubIcon />
@@ -119,7 +119,7 @@ export default function Hero() {
               href="https://linkedin.com/in/jameshualiu"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
+              className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
               aria-label="LinkedIn"
             >
               <LinkedInIcon />
