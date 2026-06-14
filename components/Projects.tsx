@@ -43,27 +43,27 @@ export default function Projects() {
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="flex gap-4 overflow-x-auto pb-2 no-scrollbar">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
             {projects.map((project) => (
               <div
                 key={project.title}
-                className="glass-card rounded-[18px] p-5 w-[220px] sm:w-[240px] flex-shrink-0"
+                className="glass-card rounded-[20px] p-6"
               >
                 <div
-                  className={`${project.visual.bg} ${project.visual.text} h-[90px] rounded-[12px] flex items-center justify-center text-[10px] font-bold tracking-widest mb-3`}
+                  className={`${project.visual.bg} ${project.visual.text} h-[120px] rounded-[14px] flex items-center justify-center text-xs font-bold tracking-widest mb-4`}
                 >
                   {project.visual.label}
                 </div>
 
-                <h3 className="text-[#2b2b40] text-[15px] font-bold mb-1.5">
+                <h3 className="text-[#2b2b40] text-lg font-bold mb-2">
                   {project.title}
                 </h3>
 
-                <p className="text-[#4d5780] text-[11px] leading-relaxed mb-3 line-clamp-2">
+                <p className="text-[#4d5780] text-sm leading-relaxed mb-4">
                   {project.desc}
                 </p>
 
-                <div className="flex flex-wrap gap-2 mb-3">
+                <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span key={tag} className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1">
                       {tag}
@@ -72,14 +72,14 @@ export default function Projects() {
                 </div>
 
                 {project.links.length > 0 && (
-                  <div className="flex gap-3">
+                  <div className="flex gap-4">
                     {project.links.map((link) => (
                       <Link
                         key={link.label}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#6c5ce7] text-[11px] underline-offset-2 hover:underline"
+                        className="text-[#6c5ce7] text-sm font-semibold underline-offset-2 hover:underline"
                       >
                         {link.label}
                       </Link>
