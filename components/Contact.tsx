@@ -8,7 +8,7 @@ export default function Contact() {
     <section id="contact" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center">
         <FadeUp>
-          <p className="text-[#4a6ef5] text-xs tracking-[0.16em] uppercase font-medium mb-3">
+          <p className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-3">
             Get in touch
           </p>
           <h2 className="text-[#e8ecf8] text-4xl font-light tracking-tight mb-5">
@@ -26,7 +26,7 @@ export default function Contact() {
         <FadeUp delay={0.2}>
           <Link
             href="mailto:placeholder@example.com"
-            className="inline-block bg-[#4a6ef5] text-white text-sm font-medium px-6 py-[11px] rounded-full hover:opacity-85 transition-opacity duration-200 tracking-wide"
+            className="inline-block bg-[#c0392b] text-white text-sm font-medium px-6 py-[11px] rounded-full hover:opacity-85 transition-opacity duration-200 tracking-wide"
           >
             placeholder@example.com
           </Link>

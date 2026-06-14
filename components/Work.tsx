@@ -6,7 +6,7 @@ export default function Work() {
     <section id="work" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
-          <p className="text-[#4a6ef5] text-xs tracking-[0.16em] uppercase font-medium mb-3">
+          <p className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-3">
             Experience
           </p>
           <h2 className="text-[#e8ecf8] text-4xl font-light tracking-tight mb-16">
@@ -21,14 +21,14 @@ export default function Work() {
               <span className="text-[#e8ecf8] text-lg font-light tracking-wide">
                 GridRaster Inc.
               </span>
-              <span className="text-[#4a6ef5] text-[10px] border border-[#4a6ef5]/25 rounded-full px-3 py-1 tracking-[0.08em] uppercase">
+              <span className="text-[#c0392b] text-[10px] border border-[#c0392b]/25 rounded-full px-3 py-1 tracking-[0.08em] uppercase">
                 Software Engineering Contractor: JULY - AUG 2025
               </span>
             </div>
 
             {/* Body */}
             <div className="bg-[#0d0f18] px-5 sm:px-8 py-7">
-              <p className="text-[#b8bdd4] text-sm leading-[1.75] font-light border-l-2 border-[#4a6ef5] pl-4 mb-7">
+              <p className="text-[#b8bdd4] text-sm leading-[1.75] font-light border-l-2 border-[#c0392b] pl-4 mb-7">
                 Enabled native 3D processing on Apple's mixed-reality platform by
                 cross-compiling C++ libraries that had never been built for
                 VisionOS — unblocking a core part of the product roadmap.
@@ -56,7 +56,7 @@ export default function Work() {
               <FadeUp delay={0.15}>
                 <div className="flex flex-wrap gap-2">
                   {["C++", "VisionOS", "iOS", "XCFramework", "Open3D", "LAPACKE"].map((tag) => (
-                    <span key={tag} className="text-[#4a6ef5] text-[10px] border border-[#4a6ef5]/20 rounded-full px-3 py-1 tracking-[0.06em]">
+                    <span key={tag} className="text-[#c0392b] text-[10px] border border-[#c0392b]/20 rounded-full px-3 py-1 tracking-[0.06em]">
                       {tag}
                     </span>
                   ))}

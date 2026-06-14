@@ -5,7 +5,7 @@ export default function About() {
     <section id="about" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
-          <p className="text-[#4a6ef5] text-xs tracking-[0.16em] uppercase font-medium mb-3">
+          <p className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-3">
             About
           </p>
           <h2 className="text-[#e8ecf8] text-4xl font-light tracking-tight mb-8">

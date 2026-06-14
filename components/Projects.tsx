@@ -7,7 +7,7 @@ export default function Projects() {
     <section id="projects" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
-          <p className="text-[#4a6ef5] text-xs tracking-[0.16em] uppercase font-medium mb-3">
+          <p className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-3">
             Projects
           </p>
           <h2 className="text-[#e8ecf8] text-4xl font-light tracking-tight mb-16">
@@ -16,7 +16,7 @@ export default function Projects() {
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="border border-[#4a6ef5]/20 rounded-2xl overflow-hidden max-w-4xl">
+          <div className="border border-[#c0392b]/20 rounded-2xl overflow-hidden max-w-4xl">
             {/* Top bar */}
             <div className="bg-[#0b0e20] border-b border-[#1a1e30] px-5 sm:px-8 py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-0 justify-between">
               <div className="flex items-center gap-3">
@@ -32,7 +32,7 @@ export default function Projects() {
                 <Link href="https://github.com/jameshualiu/badminton-ai-analyst" target="_blank" rel="noopener noreferrer" className="text-[#5a6080] text-[11px] border border-[#1a1e30] rounded-full px-3 py-1 hover:text-[#b8bdd4] hover:border-[#5a6080] transition-all duration-200 tracking-wide">
                   GitHub
                 </Link>
-                <Link href="https://badminton-ai-analyst.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[#4a6ef5] text-[11px] border border-[#4a6ef5]/25 rounded-full px-3 py-1 hover:bg-[#4a6ef5]/10 transition-all duration-200 tracking-wide">
+                <Link href="https://badminton-ai-analyst.vercel.app/" target="_blank" rel="noopener noreferrer" className="text-[#c0392b] text-[11px] border border-[#c0392b]/25 rounded-full px-3 py-1 hover:bg-[#c0392b]/10 transition-all duration-200 tracking-wide">
                   View live
                 </Link>
               </div>
@@ -40,7 +40,7 @@ export default function Projects() {
 
             {/* Body */}
             <div className="bg-[#0d0f18] px-5 sm:px-8 py-7">
-              <p className="text-[#b8bdd4] text-sm leading-[1.75] font-light border-l-2 border-[#4a6ef5] pl-4 mb-7">
+              <p className="text-[#b8bdd4] text-sm leading-[1.75] font-light border-l-2 border-[#c0392b] pl-4 mb-7">
                 Built a computer vision platform that tracks players, shuttlecocks,
                 and court zones in real time — combining YOLOv8 object detection
                 with Gemini AI to generate tactical match analysis from raw video.
@@ -68,7 +68,7 @@ export default function Projects() {
               <FadeUp delay={0.15}>
                 <div className="flex flex-wrap gap-2">
                   {["YOLOv8", "OpenCV", "Gemini AI", "Python", "React", "Computer Vision"].map((tag) => (
-                    <span key={tag} className="text-[#4a6ef5] text-[10px] border border-[#4a6ef5]/20 rounded-full px-3 py-1 tracking-[0.06em]">
+                    <span key={tag} className="text-[#c0392b] text-[10px] border border-[#c0392b]/20 rounded-full px-3 py-1 tracking-[0.06em]">
                       {tag}
                     </span>
                   ))}
