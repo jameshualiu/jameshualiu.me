@@ -55,7 +55,7 @@ export default function Hero() {
         </span>
 
         <ul className="hidden sm:flex items-center gap-8 list-none">
-          {["Work", "Projects", "About", "Contact"].map((item) => (
+          {["Skills", "Work", "Projects", "About", "Contact"].map((item) => (
             <li key={item}>
               <Link
                 href={`#${item.toLowerCase()}`}
@@ -90,7 +90,7 @@ export default function Hero() {
             href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 text-[#4a6ef5] text-[11px] border border-[#4a6ef5]/25 rounded-full px-3 py-1.5 hover:bg-[#4a6ef5]/10 transition-all duration-200 tracking-wide"
+            className="flex items-center gap-1.5 text-[#c0392b] text-[11px] border border-[#c0392b]/25 rounded-full px-3 py-1.5 hover:bg-[#c0392b]/10 transition-all duration-200 tracking-wide"
           >
             <ResumeIcon />
             <span className="hidden sm:inline">Resume</span>
@@ -101,14 +101,24 @@ export default function Hero() {
       {/* Hero content */}
       <div className="relative flex-1 max-w-5xl mx-auto w-full flex flex-col sm:grid sm:grid-cols-2 sm:items-center pb-16">
         {/* Left — headline + CTA */}
-        <div>
+        <div className="relative">
+          <svg
+            className="absolute -top-16 -left-12 w-[420px] h-[420px] pointer-events-none opacity-40 -z-10"
+            viewBox="0 0 400 400"
+            fill="none"
+            aria-hidden="true"
+          >
+            <path d="M-20 380 C 120 360, 220 120, 420 30" stroke="#c0392b" strokeWidth="2" />
+            <circle cx="416" cy="30" r="4" fill="#c0392b" />
+          </svg>
+
           <motion.p
-            className="text-[#4a6ef5] text-xs tracking-[0.16em] uppercase font-medium mb-5"
+            className="text-[#c0392b] text-xs tracking-[0.16em] uppercase font-medium mb-5"
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           >
-            CS · ML · Vision
+            Open to SWE internships
           </motion.p>
 
           <motion.h1
@@ -118,13 +128,10 @@ export default function Hero() {
             animate="visible"
           >
             <motion.span className="block" variants={lineVariants}>
-              Building
+              James
             </motion.span>
             <motion.span className="block" variants={lineVariants}>
-              things that
-            </motion.span>
-            <motion.span className="block" variants={lineVariants}>
-              <em className="text-[#4a6ef5]">matter.</em>
+              Liu
             </motion.span>
           </motion.h1>
 
@@ -135,10 +142,10 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.62 }}
           >
             <span className="text-[#b8bdd4] font-normal">
-              Computer Science at UMass Amherst.
+              CS @ UMass — computer vision &amp; machine learning.
             </span>{" "}
-            I build at the intersection of computer vision, ML, and real
-            products people actually use.
+            I build software for the people using it, not the metrics
+            watching them.
           </motion.p>
 
           <motion.div
@@ -149,7 +156,7 @@ export default function Hero() {
           >
             <MotionLink
               href="#work"
-              className="bg-[#4a6ef5] text-white text-sm font-medium px-6 py-[11px] rounded-full hover:opacity-85 transition-opacity duration-200 tracking-wide"
+              className="bg-[#c0392b] text-white text-sm font-medium px-6 py-[11px] rounded-full hover:opacity-85 transition-opacity duration-200 tracking-wide"
               whileTap={{ scale: 0.96 }}
             >
               See my work
@@ -192,8 +199,8 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.86 }}
         >
-          <div className="min-w-[200px] bg-[#0b0e20] border border-[#4a6ef5]/20 rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="min-w-[200px] bg-[#0b0e20] border border-[#c0392b]/20 rounded-2xl p-4 flex-shrink-0">
+            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
               Featured project
             </p>
             <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
@@ -208,7 +215,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="min-w-[180px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-4 flex-shrink-0">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
               HackUMass XIII
             </p>
             <h3 className="font-playfair text-[#e8ecf8] text-[15px] leading-tight mb-1.5">
@@ -222,8 +229,8 @@ export default function Hero() {
 
         {/* Desktop: stacked */}
         <div className="hidden sm:flex sm:flex-col sm:items-end sm:gap-4">
-          <div className="w-60 bg-[#0b0e20] border border-[#4a6ef5]/20 rounded-2xl p-5">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+          <div className="w-60 bg-[#0b0e20] border border-[#c0392b]/20 rounded-2xl p-5">
+            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
               Featured project
             </p>
             <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
@@ -240,7 +247,7 @@ export default function Hero() {
             </div>
           </div>
           <div className="w-[220px] bg-[#0d0f18] border border-[#1a1e30] rounded-2xl p-5">
-            <p className="text-[#4a6ef5] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
+            <p className="text-[#c0392b] text-[10px] uppercase tracking-[0.13em] font-medium mb-2">
               HackUMass XIII
             </p>
             <h3 className="font-playfair text-[#e8ecf8] text-[17px] leading-tight mb-1.5">
