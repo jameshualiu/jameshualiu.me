@@ -16,11 +16,10 @@ export default function Skills() {
             Skills
           </p>
           <h2 className="text-[#2b2b40] text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            Tools I think in.
+            My Toolbox.
           </h2>
           <p className="text-[#4d5780] text-sm leading-[1.8] max-w-md mb-12">
-            From computer vision research to cross-platform apps — the stack
-            I reach for most.
+            The tools I&apos;ve learned and honed.
           </p>
         </FadeUp>
 
