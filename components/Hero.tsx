@@ -42,66 +42,67 @@ const headlineVariants = {
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex flex-col px-6 py-10 sm:px-12">
-      {/* Nav */}
+    <>
+      {/* Nav — fixed so it persists through scroll */}
       <motion.nav
-        className="relative max-w-5xl mx-auto w-full flex items-center justify-between mb-4"
+        className="fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6"
         initial={{ opacity: 0, y: -12 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
       >
-        <span className="glass-pill rounded-full px-[18px] py-2 text-sm font-bold text-[#2b2b40]">
-          James Liu
-        </span>
+        <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
+          <span className="glass-pill rounded-full px-[18px] py-2 text-sm font-bold text-[#2b2b40]">
+            James Liu
+          </span>
 
-        <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none">
-          {["Skills", "Work", "Projects", "About", "Contact"].map((item) => (
-            <li key={item}>
-              <Link
-                href={`#${item.toLowerCase()}`}
-                className="block text-[#4d5780] text-sm px-[18px] py-2 rounded-full hover:text-[#2b2b40] transition-colors duration-200"
-              >
-                {item}
-              </Link>
-            </li>
-          ))}
-        </ul>
+          <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none">
+            {["Skills", "Work", "Projects", "About", "Contact"].map((item) => (
+              <li key={item}>
+                <Link
+                  href={`#${item.toLowerCase()}`}
+                  className="block text-[#4d5780] text-sm px-[18px] py-2 rounded-full hover:text-[#2b2b40] transition-colors duration-200"
+                >
+                  {item}
+                </Link>
+              </li>
+            ))}
+          </ul>
 
-        <div className="flex items-center gap-3">
-          <Link
-            href="https://github.com/jameshualiu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <GitHubIcon />
-          </Link>
-          <Link
-            href="https://linkedin.com/in/jameshualiu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon />
-          </Link>
-          <Link
-            href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-1.5 hover:bg-white/60 transition-colors duration-200"
-          >
-            <ResumeIcon />
-            <span className="hidden sm:inline">Resume</span>
-          </Link>
+          <div className="flex items-center gap-3">
+            <Link
+              href="https://github.com/jameshualiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
+              aria-label="GitHub"
+            >
+              <GitHubIcon />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/jameshualiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#4d5780] hover:text-[#2b2b40] transition-colors duration-200"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon />
+            </Link>
+            <Link
+              href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-1.5 hover:bg-white/60 transition-colors duration-200"
+            >
+              <ResumeIcon />
+              <span className="hidden sm:inline">Resume</span>
+            </Link>
+          </div>
         </div>
       </motion.nav>
 
       {/* Hero content */}
-      <div className="relative flex-1 max-w-5xl mx-auto w-full flex flex-col sm:grid sm:grid-cols-2 sm:items-center pb-16">
-        {/* Left — headline + CTA */}
-        <div className="relative">
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 sm:px-12">
+        <div className="relative max-w-2xl mx-auto w-full flex flex-col items-center text-center">
           <motion.p
             className="glass-pill inline-block text-[#6c5ce7] text-xs tracking-[0.16em] uppercase font-bold rounded-full px-4 py-1.5 mb-5"
             initial={{ opacity: 0, y: 16 }}
@@ -161,7 +162,7 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            className="flex items-center gap-2.5 mt-8 mb-8 sm:mb-0"
+            className="flex items-center gap-2.5 mt-8"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.9 }}
@@ -180,74 +181,7 @@ export default function Hero() {
             </span>
           </motion.div>
         </div>
-
-        {/* Mobile: horizontal scroll strip */}
-        <motion.div
-          className="flex gap-3 overflow-x-auto pb-2 no-scrollbar sm:hidden"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.86 }}
-        >
-          <div className="glass-card min-w-[200px] rounded-[18px] p-4 flex-shrink-0">
-            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
-              Featured project
-            </p>
-            <h3 className="text-[#2b2b40] text-[15px] font-bold leading-tight mb-1.5">
-              Badminton AI Analyst
-            </h3>
-            <p className="text-[#4d5780] text-[11px] leading-relaxed">
-              YOLOv8 · OpenCV · Gemini AI
-            </p>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
-              <span className="text-[#4d5780] text-[11px]">Live</span>
-            </div>
-          </div>
-          <div className="glass-card min-w-[180px] rounded-[18px] p-4 flex-shrink-0">
-            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
-              HackUMass XIII
-            </p>
-            <h3 className="text-[#2b2b40] text-[15px] font-bold leading-tight mb-1.5">
-              Lectro
-            </h3>
-            <p className="text-[#4d5780] text-[11px] leading-relaxed">
-              Accessibility-focused lecture tool
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Desktop: stacked */}
-        <div className="hidden sm:flex sm:flex-col sm:items-end sm:gap-4">
-          <div className="glass-card w-60 rounded-[18px] p-5">
-            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
-              Featured project
-            </p>
-            <h3 className="text-[#2b2b40] text-[17px] font-bold leading-tight mb-1.5">
-              Badminton AI Analyst
-            </h3>
-            <p className="text-[#4d5780] text-[11px] leading-relaxed">
-              YOLOv8 · OpenCV · Gemini AI
-              <br />
-              Real-time court tracking
-            </p>
-            <div className="flex items-center gap-2 mt-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse" />
-              <span className="text-[#4d5780] text-[11px]">Live</span>
-            </div>
-          </div>
-          <div className="glass-card w-[220px] rounded-[18px] p-5">
-            <p className="text-[#6c5ce7] text-[10px] uppercase tracking-[0.13em] font-bold mb-2">
-              HackUMass XIII
-            </p>
-            <h3 className="text-[#2b2b40] text-[17px] font-bold leading-tight mb-1.5">
-              Lectro
-            </h3>
-            <p className="text-[#4d5780] text-[11px] leading-relaxed">
-              Accessibility-focused lecture tool
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 }
