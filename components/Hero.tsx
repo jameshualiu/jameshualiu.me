@@ -43,38 +43,6 @@ const headlineVariants = {
 
 const navItems = ["Skills", "Work", "Projects", "About", "Contact"];
 
-function CurveLines({ side }: { side: "left" | "right" }) {
-  return (
-    <div
-      className={`hidden lg:block absolute top-0 h-full w-56 opacity-40 ${
-        side === "left" ? "left-0 -translate-x-24" : "right-0 translate-x-24 -scale-x-100"
-      }`}
-      aria-hidden="true"
-    >
-      <svg
-        viewBox="0 0 220 280"
-        preserveAspectRatio="none"
-        className="w-full h-full"
-      >
-        <path
-          d="M10,0 C80,60 20,140 90,200 C140,250 60,280 100,320"
-          fill="none"
-          stroke="#6c5ce7"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-        <path
-          d="M50,-20 C120,40 60,120 130,180 C180,230 100,270 140,320"
-          fill="none"
-          stroke="#b8c4ff"
-          strokeWidth="1.5"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
-  );
-}
-
 export default function Hero() {
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
@@ -170,9 +138,7 @@ export default function Hero() {
       </motion.nav>
 
       {/* Hero content */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 sm:px-12 overflow-hidden">
-        <CurveLines side="left" />
-        <CurveLines side="right" />
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 pt-24 pb-16 sm:px-12">
         <div className="relative max-w-2xl mx-auto w-full flex flex-col items-center text-center">
           <motion.p
             className="glass-pill inline-block text-[#6c5ce7] text-xs tracking-[0.16em] uppercase font-bold rounded-full px-4 py-1.5 mb-5"
