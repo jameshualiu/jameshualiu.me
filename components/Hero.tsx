@@ -69,8 +69,8 @@ export default function Hero() {
       {/* Nav — fixed so it persists through scroll */}
       <motion.nav
         className="fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6"
-        initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
+        initial={{ opacity: 0, marginTop: -12 }}
+        animate={{ opacity: 1, marginTop: 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
       >
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
