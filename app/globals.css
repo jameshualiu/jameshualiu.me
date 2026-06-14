@@ -2,9 +2,9 @@
 
 :root {
   --glass-bg: rgba(255, 255, 255, 0.55);
-  --glass-bg-pill: rgba(255, 255, 255, 0.45);
+  --glass-bg-pill: rgba(255, 255, 255, 0.68);
   --glass-border: rgba(255, 255, 255, 0.7);
-  --glass-border-pill: rgba(255, 255, 255, 0.6);
+  --glass-border-pill: rgba(255, 255, 255, 0.75);
   --glass-shadow: 0 8px 24px rgba(90, 100, 160, 0.14);
 }
 

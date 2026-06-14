@@ -1,7 +1,7 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 const MotionLink = motion(Link);
@@ -44,31 +44,14 @@ const headlineVariants = {
 const navItems = ["Skills", "Work", "Projects", "About", "Contact"];
 
 export default function Hero() {
-  const [navHidden, setNavHidden] = useState(false);
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
-  const lastY = useRef(0);
-  const suppressHide = useRef(false);
 
   const handleNavClick = (id: string) => {
     setActiveSection(id);
-    suppressHide.current = true;
-    window.setTimeout(() => {
-      suppressHide.current = false;
-    }, 1000);
   };
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    const diff = latest - lastY.current;
-    if (latest < 80 || suppressHide.current) {
-      setNavHidden(false);
-    } else if (diff > 4) {
-      setNavHidden(true);
-    } else if (diff < -4) {
-      setNavHidden(false);
-    }
-    lastY.current = latest;
-
+  useMotionValueEvent(scrollY, "change", () => {
     let current = "";
     for (const item of navItems) {
       const el = document.getElementById(item.toLowerCase());
@@ -81,13 +64,11 @@ export default function Hero() {
 
   return (
     <>
-      {/* Nav — fixed so it persists through scroll, fades on scroll direction */}
+      {/* Nav — fixed so it persists through scroll */}
       <motion.nav
-        className={`fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6 ${
-          navHidden ? "pointer-events-none" : ""
-        }`}
+        className="fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6"
         initial={{ opacity: 0, y: -12 }}
-        animate={navHidden ? { opacity: 0, y: -16 } : { opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.35, ease: "easeInOut" }}
       >
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
@@ -114,7 +95,7 @@ export default function Hero() {
                     className={`relative z-10 block text-sm px-[18px] py-2 rounded-full transition-colors duration-200 ${
                       isActive
                         ? "text-[#2b2b40] font-semibold"
-                        : "text-[#4d5780] hover:text-[#2b2b40]"
+                        : "text-[#3b3f5c] hover:text-[#2b2b40]"
                     }`}
                   >
                     {item}
