@@ -15,16 +15,25 @@ export default function Skills() {
           <p className="text-[#6c5ce7] text-xs tracking-[0.2em] uppercase font-bold mb-3">
             Skills
           </p>
-          <h2 className="text-[#2b2b40] text-3xl sm:text-4xl font-extrabold tracking-tight mb-16">
-            Toolbox
+          <h2 className="text-[#2b2b40] text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            Tools I think in.
           </h2>
+          <p className="text-[#4d5780] text-sm leading-[1.8] max-w-md mb-12">
+            From computer vision research to cross-platform apps — the stack
+            I reach for most.
+          </p>
         </FadeUp>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-4xl">
-          {categories.map((category, i) => (
-            <FadeUp key={category.name} delay={i * 0.07}>
-              <div className="glass-card rounded-[18px] px-5 py-5 h-full">
-                <p className="text-[#6c5ce7] text-[10px] tracking-[0.2em] uppercase font-bold mb-3">
+        <FadeUp delay={0.1}>
+          <div className="glass-card rounded-[20px] p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-4 gap-8 sm:gap-6">
+            {categories.map((category, i) => (
+              <div
+                key={category.name}
+                className={
+                  i > 0 ? "sm:border-l sm:border-white/40 sm:pl-6" : ""
+                }
+              >
+                <p className="text-[#6c5ce7] text-[10px] tracking-[0.2em] uppercase font-bold mb-4">
                   {category.name}
                 </p>
                 <div className="flex flex-wrap gap-2">
@@ -38,9 +47,9 @@ export default function Skills() {
                   ))}
                 </div>
               </div>
-            </FadeUp>
-          ))}
-        </div>
+            ))}
+          </div>
+        </FadeUp>
       </div>
     </section>
   );
