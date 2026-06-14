@@ -1,6 +1,7 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
+import { useRef, useState } from "react";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 const MotionLink = motion(Link);
@@ -41,14 +42,32 @@ const headlineVariants = {
 };
 
 export default function Hero() {
+  const [navHidden, setNavHidden] = useState(false);
+  const { scrollY } = useScroll();
+  const lastY = useRef(0);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const diff = latest - lastY.current;
+    if (latest < 80) {
+      setNavHidden(false);
+    } else if (diff > 4) {
+      setNavHidden(true);
+    } else if (diff < -4) {
+      setNavHidden(false);
+    }
+    lastY.current = latest;
+  });
+
   return (
     <>
-      {/* Nav — fixed so it persists through scroll */}
+      {/* Nav — fixed so it persists through scroll, fades on scroll direction */}
       <motion.nav
-        className="fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6"
+        className={`fixed top-0 inset-x-0 z-50 px-6 py-5 sm:px-12 sm:py-6 ${
+          navHidden ? "pointer-events-none" : ""
+        }`}
         initial={{ opacity: 0, y: -12 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
+        animate={navHidden ? { opacity: 0, y: -16 } : { opacity: 1, y: 0 }}
+        transition={{ duration: 0.35, ease: "easeInOut" }}
       >
         <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
           <span className="glass-pill rounded-full px-[18px] py-2 text-sm font-bold text-[#2b2b40]">
