@@ -1,7 +1,7 @@
 "use client";
 import { motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type MouseEvent } from "react";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 const MotionLink = motion(Link);
@@ -47,7 +47,9 @@ export default function Hero() {
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
 
-  const handleNavClick = (id: string) => {
+  const handleNavClick = (e: MouseEvent, id: string) => {
+    e.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
     setActiveSection(id);
   };
 
@@ -91,7 +93,8 @@ export default function Hero() {
                   )}
                   <Link
                     href={`#${id}`}
-                    onClick={() => handleNavClick(id)}
+                    scroll={false}
+                    onClick={(e) => handleNavClick(e, id)}
                     className={`relative z-10 block text-sm px-[18px] py-2 rounded-full transition-colors duration-200 ${
                       isActive
                         ? "text-white font-semibold"
