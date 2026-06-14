@@ -41,8 +41,11 @@ const headlineVariants = {
   visible: { transition: { staggerChildren: 0.08, delayChildren: 0.3 } },
 };
 
+const navItems = ["Skills", "Work", "Projects", "About", "Contact"];
+
 export default function Hero() {
   const [navHidden, setNavHidden] = useState(false);
+  const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
   const lastY = useRef(0);
 
@@ -56,6 +59,15 @@ export default function Hero() {
       setNavHidden(false);
     }
     lastY.current = latest;
+
+    let current = "";
+    for (const item of navItems) {
+      const el = document.getElementById(item.toLowerCase());
+      if (el && el.getBoundingClientRect().top <= 120) {
+        current = item.toLowerCase();
+      }
+    }
+    setActiveSection(current);
   });
 
   return (
@@ -75,16 +87,32 @@ export default function Hero() {
           </span>
 
           <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none">
-            {["Skills", "Work", "Projects", "About", "Contact"].map((item) => (
-              <li key={item}>
-                <Link
-                  href={`#${item.toLowerCase()}`}
-                  className="block text-[#4d5780] text-sm px-[18px] py-2 rounded-full hover:text-[#2b2b40] transition-colors duration-200"
-                >
-                  {item}
-                </Link>
-              </li>
-            ))}
+            {navItems.map((item) => {
+              const id = item.toLowerCase();
+              const isActive = activeSection === id;
+              return (
+                <li key={item} className="relative">
+                  {isActive && (
+                    <motion.div
+                      layoutId="nav-active-pill"
+                      className="absolute inset-0 bg-white rounded-full"
+                      transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    />
+                  )}
+                  <Link
+                    href={`#${id}`}
+                    onClick={() => setActiveSection(id)}
+                    className={`relative z-10 block text-sm px-[18px] py-2 rounded-full transition-colors duration-200 ${
+                      isActive
+                        ? "text-[#2b2b40] font-semibold"
+                        : "text-[#4d5780] hover:text-[#2b2b40]"
+                    }`}
+                  >
+                    {item}
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           <div className="flex items-center gap-3">
