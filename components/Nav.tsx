@@ -55,12 +55,12 @@ export default function Nav() {
       animate={{ opacity: 1, marginTop: 0 }}
       transition={{ duration: 0.35, ease: "easeInOut" }}
     >
-      <div className="max-w-5xl mx-auto w-full flex items-center justify-between">
+      <div className="max-w-5xl mx-auto w-full relative flex items-center justify-between">
         <span className="glass-pill rounded-full px-[18px] py-2 text-sm font-bold text-[#2b2b40]">
           James Liu
         </span>
 
-        <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none">
+        <ul className="hidden sm:flex items-center gap-1.5 glass-pill rounded-full p-1.5 list-none absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => {
             const id = item.toLowerCase();
             const isActive = activeSection === id;
