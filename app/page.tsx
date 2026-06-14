@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import Skills from "@/components/Skills";
 import Work from "@/components/Work";
 import Projects from "@/components/Projects";
 import About from "@/components/About";
@@ -15,14 +16,15 @@ export default function Home() {
           backgroundSize: "200px 200px",
         }}
       />
-      {/* Blue ambient glow */}
+      {/* Rust ambient glow */}
       <div
         className="absolute -top-40 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full pointer-events-none z-0"
         style={{
-          background: "radial-gradient(circle, rgba(74,110,245,0.07) 0%, transparent 65%)",
+          background: "radial-gradient(circle, rgba(192,57,43,0.07) 0%, transparent 65%)",
         }}
       />
       <Hero />
+      <Skills />
       <Work />
       <Projects />
       <About />
