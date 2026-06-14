@@ -24,8 +24,8 @@ export default function About() {
           </FadeUp>
           <FadeUp delay={0.17}>
             <div className="glass-card rounded-[18px] p-6 text-[#3b3f5c] text-sm leading-[1.8] h-full">
-              I&apos;ve shipped a real-time CV platform (Badminton AI
-              Analyst), cross-compiled C++ libraries for Apple Vision Pro at
+              I&apos;ve shipped a real-time CV platform (Shuttleye),
+              cross-compiled C++ libraries for Apple Vision Pro at
               GridRaster, and built accessibility tools at HackUMass. Outside
               of code: hackathons, the gym, and whatever new model just
               dropped.

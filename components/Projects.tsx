@@ -4,8 +4,7 @@ import FadeUp from "./FadeUp";
 
 const projects = [
   {
-    title: "Badminton AI Analyst",
-    live: true,
+    title: "Shuttleye",
     visual: { label: "DEMO", bg: "bg-[#6c5ce7]", text: "text-white" },
     desc: "Computer vision platform tracking players, shuttlecock, and court zones in real time, with Gemini AI generating tactical match analysis.",
     tags: ["YOLOv8", "OpenCV", "Gemini AI"],
@@ -16,7 +15,6 @@ const projects = [
   },
   {
     title: "Lectro",
-    live: false,
     visual: { label: "PREVIEW", bg: "bg-[#b8c4ff]", text: "text-[#2b2b40]" },
     desc: "Accessibility-focused lecture tool built at HackUMass XIII — live captioning and structured note generation for lecture audio.",
     tags: ["Python", "Gemini AI"],
@@ -24,7 +22,6 @@ const projects = [
   },
   {
     title: "Portfolio site",
-    live: false,
     visual: { label: "PREVIEW", bg: "bg-[#6c5ce7]", text: "text-white" },
     desc: "This site — Next.js, glassmorphism, and way too many design revisions.",
     tags: ["Next.js", "React"],
@@ -50,7 +47,7 @@ export default function Projects() {
             {projects.map((project) => (
               <div
                 key={project.title}
-                className="glass-card rounded-[18px] p-5 min-w-[260px] sm:min-w-[280px] flex-shrink-0"
+                className="glass-card rounded-[18px] p-5 w-[220px] sm:w-[240px] flex-shrink-0"
               >
                 <div
                   className={`${project.visual.bg} ${project.visual.text} h-[90px] rounded-[12px] flex items-center justify-center text-[10px] font-bold tracking-widest mb-3`}
@@ -58,17 +55,9 @@ export default function Projects() {
                   {project.visual.label}
                 </div>
 
-                <div className="flex items-center gap-2 mb-1.5">
-                  <h3 className="text-[#2b2b40] text-[15px] font-bold">
-                    {project.title}
-                  </h3>
-                  {project.live && (
-                    <span className="flex items-center gap-1.5 text-[#4dbd78] text-[10px] uppercase tracking-[0.08em]">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#4dbd78] animate-pulse inline-block" />
-                      Live
-                    </span>
-                  )}
-                </div>
+                <h3 className="text-[#2b2b40] text-[15px] font-bold mb-1.5">
+                  {project.title}
+                </h3>
 
                 <p className="text-[#4d5780] text-[11px] leading-relaxed mb-3 line-clamp-2">
                   {project.desc}
