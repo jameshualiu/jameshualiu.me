@@ -48,10 +48,19 @@ export default function Hero() {
   const [activeSection, setActiveSection] = useState("");
   const { scrollY } = useScroll();
   const lastY = useRef(0);
+  const suppressHide = useRef(false);
+
+  const handleNavClick = (id: string) => {
+    setActiveSection(id);
+    suppressHide.current = true;
+    window.setTimeout(() => {
+      suppressHide.current = false;
+    }, 1000);
+  };
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const diff = latest - lastY.current;
-    if (latest < 80) {
+    if (latest < 80 || suppressHide.current) {
       setNavHidden(false);
     } else if (diff > 4) {
       setNavHidden(true);
@@ -101,7 +110,7 @@ export default function Hero() {
                   )}
                   <Link
                     href={`#${id}`}
-                    onClick={() => setActiveSection(id)}
+                    onClick={() => handleNavClick(id)}
                     className={`relative z-10 block text-sm px-[18px] py-2 rounded-full transition-colors duration-200 ${
                       isActive
                         ? "text-[#2b2b40] font-semibold"
