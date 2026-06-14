@@ -206,7 +206,7 @@ Replace the single placeholder paragraph with **two glass cards side-by-side** (
   > "Open to SWE internships and interesting projects — feel free to reach out. Email is the best way to find me."
   Styled `text-sm text-[#4d5780] leading-[1.8] max-w-md mb-8`.
 - Wrap the email CTA + social icons in one centered `glass-card rounded-[22px] px-10 py-9 inline-flex flex-col items-center gap-5`:
-  - Email becomes the **solid CTA** pill: `bg-[#6c5ce7] text-white text-sm font-semibold rounded-full px-6 py-[11px] shadow-[0_8px_20px_rgba(108,92,231,0.32)]`, `href="mailto:james@jameshualiu.me"`, label `james@jameshualiu.me` (replacing `placeholder@example.com` — adjust if a different address is preferred later, this is a one-line change).
+  - Email becomes the **solid CTA** pill: `bg-[#6c5ce7] text-white text-sm font-semibold rounded-full px-6 py-[11px] shadow-[0_8px_20px_rgba(108,92,231,0.32)]`, `href="mailto:james.hua.liu@gmail.com"`, label `james.hua.liu@gmail.com` (replacing `placeholder@example.com`).
   - Social row below: GitHub + LinkedIn icons, each inside a small `glass-pill` circle (`w-10 h-10 rounded-full flex items-center justify-center`), icon color `text-[#4d5780]` hover `text-[#2b2b40]`. Links unchanged (`github.com/jameshualiu`, `linkedin.com/in/jameshualiu`).
 - `FadeUp` staggers (label/title → subline → card) preserved from existing structure.
 
