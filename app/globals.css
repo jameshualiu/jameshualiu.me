@@ -1,10 +1,37 @@
 @import "tailwindcss";
 
-/* @theme inline {
-  --font-playfair: var(--font-instrument);
-  --font-outfit: var(--font-dm-sans);
-} */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.55);
+  --glass-bg-pill: rgba(255, 255, 255, 0.45);
+  --glass-border: rgba(255, 255, 255, 0.7);
+  --glass-border-pill: rgba(255, 255, 255, 0.6);
+  --glass-shadow: 0 8px 24px rgba(90, 100, 160, 0.14);
+}
 
 html {
   scroll-behavior: smooth;
+}
+
+@layer utilities {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-pill {
+    background: var(--glass-bg-pill);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--glass-border-pill);
+  }
+
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 }
