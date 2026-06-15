@@ -146,45 +146,49 @@ export default function Nav() {
           })}
         </ul>
 
-        <div className="hidden sm:flex items-center gap-3">
-          <Link
-            href="https://github.com/jameshualiu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
-            aria-label="GitHub"
-          >
-            <GitHubIcon />
-          </Link>
-          <Link
-            href="https://linkedin.com/in/jameshualiu"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
-            aria-label="LinkedIn"
-          >
-            <LinkedInIcon />
-          </Link>
+        <div className="flex items-center gap-3">
+          <div className="hidden sm:flex items-center gap-3">
+            <Link
+              href="https://github.com/jameshualiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
+              aria-label="GitHub"
+            >
+              <GitHubIcon />
+            </Link>
+            <Link
+              href="https://linkedin.com/in/jameshualiu"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
+              aria-label="LinkedIn"
+            >
+              <LinkedInIcon />
+            </Link>
+          </div>
+
           <Link
             href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
             target="_blank"
             rel="noopener noreferrer"
-            className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-1.5 hover:bg-white/60 transition-colors duration-200"
+            className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-1.5 sm:px-3 sm:py-1.5 hover:bg-white/60 transition-colors duration-200"
+            aria-label="Resume"
           >
             <ResumeIcon />
             <span className="hidden sm:inline">Resume</span>
           </Link>
-        </div>
 
-        <button
-          type="button"
-          onClick={() => setMobileMenuOpen((open) => !open)}
-          className="sm:hidden glass-pill w-10 h-10 rounded-full flex items-center justify-center text-[#3b3f5c]"
-          aria-label="Toggle menu"
-          aria-expanded={mobileMenuOpen}
-        >
-          <MenuIcon open={mobileMenuOpen} />
-        </button>
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen((open) => !open)}
+            className="sm:hidden glass-pill w-10 h-10 rounded-full flex items-center justify-center text-[#3b3f5c]"
+            aria-label="Toggle menu"
+            aria-expanded={mobileMenuOpen}
+          >
+            <MenuIcon open={mobileMenuOpen} />
+          </button>
+        </div>
       </div>
 
       <AnimatePresence>
@@ -236,16 +240,6 @@ export default function Nav() {
                 aria-label="LinkedIn"
               >
                 <LinkedInIcon />
-              </Link>
-              <Link
-                href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => setMobileMenuOpen(false)}
-                className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-2 hover:bg-white/60 transition-colors duration-200"
-              >
-                <ResumeIcon />
-                <span>Resume</span>
               </Link>
             </div>
           </motion.div>
