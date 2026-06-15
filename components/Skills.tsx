@@ -4,14 +4,19 @@ import {
   SiPython,
   SiCplusplus,
   SiTypescript,
+  SiJavascript,
+  SiOpenjdk,
   SiPytorch,
   SiOpencv,
-  SiGooglegemini,
+  SiClaude,
   SiReact,
   SiNextdotjs,
+  SiExpress,
+  SiFastapi,
   SiSwift,
   SiApple,
   SiGit,
+  SiDocker,
 } from "react-icons/si";
 
 type Tag = { name: string; icon?: IconType; color?: string };
@@ -23,6 +28,8 @@ const categories: { name: string; tags: Tag[] }[] = [
       { name: "Python", icon: SiPython, color: "#3776AB" },
       { name: "C++", icon: SiCplusplus, color: "#00599C" },
       { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+      { name: "JavaScript", icon: SiJavascript, color: "#F7DF1E" },
+      { name: "Java", icon: SiOpenjdk, color: "#437291" },
     ],
   },
   {
@@ -31,7 +38,7 @@ const categories: { name: string; tags: Tag[] }[] = [
       { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
       { name: "YOLOv8" },
       { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
-      { name: "Gemini AI", icon: SiGooglegemini, color: "#8E75B2" },
+      { name: "Claude", icon: SiClaude, color: "#D97757" },
     ],
   },
   {
@@ -39,6 +46,8 @@ const categories: { name: string; tags: Tag[] }[] = [
     tags: [
       { name: "React", icon: SiReact, color: "#61DAFB" },
       { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+      { name: "Express", icon: SiExpress, color: "#000000" },
+      { name: "FastAPI", icon: SiFastapi, color: "#009688" },
     ],
   },
   {
@@ -47,6 +56,7 @@ const categories: { name: string; tags: Tag[] }[] = [
       { name: "VisionOS", icon: SiSwift, color: "#F05138" },
       { name: "iOS", icon: SiApple, color: "#000000" },
       { name: "Git", icon: SiGit, color: "#F05032" },
+      { name: "Docker", icon: SiDocker, color: "#2496ED" },
     ],
   },
 ];
