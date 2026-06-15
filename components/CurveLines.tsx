@@ -21,7 +21,7 @@ function CurveLine({ side }: { side: "left" | "right" }) {
           strokeWidth="2"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          animate={{ y: [0, 18, 0] }}
+          animate={{ y: [0, 36, 0] }}
           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.path
@@ -31,7 +31,7 @@ function CurveLine({ side }: { side: "left" | "right" }) {
           strokeWidth="1.5"
           strokeLinecap="round"
           vectorEffect="non-scaling-stroke"
-          animate={{ y: [0, -16, 0] }}
+          animate={{ y: [0, -32, 0] }}
           transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         />
       </svg>
