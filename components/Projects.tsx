@@ -1,11 +1,21 @@
 "use client";
+import Image from "next/image";
 import Link from "next/link";
 import FadeUp from "./FadeUp";
 
-const projects = [
+type Project = {
+  title: string;
+  image?: string;
+  visual?: { label: string; bg: string; text: string };
+  desc: string;
+  tags: string[];
+  links: { label: string; href: string }[];
+};
+
+const projects: Project[] = [
   {
     title: "Shuttleye",
-    visual: { label: "DEMO", bg: "bg-[#6c5ce7]", text: "text-white" },
+    image: "/shuttleye.png",
     desc: "End-to-end computer vision pipeline for badminton: tracks players and the shuttlecock frame-by-frame, segments rallies, and classifies stroke types to generate match analytics.",
     tags: ["YOLOv8", "OpenCV", "Gemini AI"],
     links: [
@@ -49,11 +59,22 @@ export default function Projects() {
                 key={project.title}
                 className="glass-card rounded-[20px] p-6"
               >
-                <div
-                  className={`${project.visual.bg} ${project.visual.text} h-[120px] rounded-[14px] flex items-center justify-center text-xs font-bold tracking-widest mb-4`}
-                >
-                  {project.visual.label}
-                </div>
+                {project.image ? (
+                  <div className="relative h-[120px] rounded-[14px] overflow-hidden mb-4">
+                    <Image
+                      src={project.image}
+                      alt={`${project.title} preview`}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                ) : (
+                  <div
+                    className={`${project.visual?.bg} ${project.visual?.text} h-[120px] rounded-[14px] flex items-center justify-center text-xs font-bold tracking-widest mb-4`}
+                  >
+                    {project.visual?.label}
+                  </div>
+                )}
 
                 <h3 className="text-[#2b2b40] text-lg font-bold mb-2">
                   {project.title}
