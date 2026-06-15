@@ -6,7 +6,7 @@ const projects = [
   {
     title: "Shuttleye",
     visual: { label: "DEMO", bg: "bg-[#6c5ce7]", text: "text-white" },
-    desc: "Computer vision platform tracking players, shuttlecock, and court zones in real time, with Gemini AI generating tactical match analysis.",
+    desc: "End-to-end computer vision pipeline for badminton: tracks players and the shuttlecock frame-by-frame, segments rallies, and classifies stroke types to generate match analytics.",
     tags: ["YOLOv8", "OpenCV", "Gemini AI"],
     links: [
       { label: "GitHub", href: "https://github.com/jameshualiu/badminton-ai-analyst" },
