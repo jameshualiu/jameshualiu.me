@@ -1,10 +1,54 @@
 import FadeUp from "./FadeUp";
+import type { IconType } from "react-icons";
+import {
+  SiPython,
+  SiCplusplus,
+  SiTypescript,
+  SiPytorch,
+  SiOpencv,
+  SiGooglegemini,
+  SiReact,
+  SiNextdotjs,
+  SiSwift,
+  SiApple,
+  SiGit,
+} from "react-icons/si";
 
-const categories = [
-  { name: "Languages", tags: ["Python", "C++", "TypeScript"] },
-  { name: "ML / Computer Vision", tags: ["PyTorch", "YOLOv8", "OpenCV", "Gemini AI"] },
-  { name: "Web", tags: ["React", "Next.js"] },
-  { name: "Platforms", tags: ["VisionOS", "iOS", "Git"] },
+type Tag = { name: string; icon?: IconType; color?: string };
+
+const categories: { name: string; tags: Tag[] }[] = [
+  {
+    name: "Languages",
+    tags: [
+      { name: "Python", icon: SiPython, color: "#3776AB" },
+      { name: "C++", icon: SiCplusplus, color: "#00599C" },
+      { name: "TypeScript", icon: SiTypescript, color: "#3178C6" },
+    ],
+  },
+  {
+    name: "ML / Computer Vision",
+    tags: [
+      { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
+      { name: "YOLOv8" },
+      { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
+      { name: "Gemini AI", icon: SiGooglegemini, color: "#8E75B2" },
+    ],
+  },
+  {
+    name: "Web",
+    tags: [
+      { name: "React", icon: SiReact, color: "#61DAFB" },
+      { name: "Next.js", icon: SiNextdotjs, color: "#000000" },
+    ],
+  },
+  {
+    name: "Platforms",
+    tags: [
+      { name: "VisionOS", icon: SiSwift, color: "#F05138" },
+      { name: "iOS", icon: SiApple, color: "#000000" },
+      { name: "Git", icon: SiGit, color: "#F05032" },
+    ],
+  },
 ];
 
 export default function Skills() {
@@ -36,14 +80,20 @@ export default function Skills() {
                   {category.name}
                 </p>
                 <div className="flex flex-wrap gap-2">
-                  {category.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  {category.tags.map((tag) => {
+                    const Icon = tag.icon;
+                    return (
+                      <span
+                        key={tag.name}
+                        className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1 inline-flex items-center gap-1.5"
+                      >
+                        {Icon && (
+                          <Icon size={12} style={{ color: tag.color }} />
+                        )}
+                        {tag.name}
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
             ))}
