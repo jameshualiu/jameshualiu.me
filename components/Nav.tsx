@@ -1,7 +1,7 @@
 "use client";
-import { motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
-import { useState, type MouseEvent } from "react";
+import { useRef, useState, type MouseEvent } from "react";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 function ResumeIcon() {
@@ -25,19 +25,75 @@ function ResumeIcon() {
   );
 }
 
+function MenuIcon({ open }: { open: boolean }) {
+  return (
+    <div className="w-4 h-3 flex flex-col items-center justify-between">
+      <motion.span
+        className="block w-4 h-[1.5px] bg-current rounded-full"
+        animate={{ rotate: open ? 45 : 0, y: open ? 5.5 : 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      />
+      <motion.span
+        className="block w-4 h-[1.5px] bg-current rounded-full"
+        animate={{ opacity: open ? 0 : 1 }}
+        transition={{ duration: 0.15 }}
+      />
+      <motion.span
+        className="block w-4 h-[1.5px] bg-current rounded-full"
+        animate={{ rotate: open ? -45 : 0, y: open ? -5.5 : 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
+      />
+    </div>
+  );
+}
+
 const navItems = ["Skills", "Work", "Projects", "About", "Contact"];
+
+const NAV_OFFSET = 90;
+
+function smoothScrollTo(targetY: number, duration = 700, onComplete?: () => void) {
+  const startY = window.scrollY;
+  const diff = targetY - startY;
+  const startTime = performance.now();
+
+  const easeInOutCubic = (t: number) =>
+    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+  function step(now: number) {
+    const progress = Math.min((now - startTime) / duration, 1);
+    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
+    if (progress < 1) {
+      requestAnimationFrame(step);
+    } else {
+      onComplete?.();
+    }
+  }
+
+  requestAnimationFrame(step);
+}
 
 export default function Nav() {
   const [activeSection, setActiveSection] = useState("");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const isProgrammaticScroll = useRef(false);
 
   const handleNavClick = (e: MouseEvent, id: string) => {
     e.preventDefault();
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    const el = document.getElementById(id);
+    if (el) {
+      isProgrammaticScroll.current = true;
+      const targetY = window.scrollY + el.getBoundingClientRect().top - NAV_OFFSET;
+      smoothScrollTo(targetY, 700, () => {
+        isProgrammaticScroll.current = false;
+      });
+    }
     setActiveSection(id);
+    setMobileMenuOpen(false);
   };
 
   useMotionValueEvent(scrollY, "change", () => {
+    if (isProgrammaticScroll.current) return;
     let current = "";
     for (const item of navItems) {
       const el = document.getElementById(item.toLowerCase());
@@ -90,7 +146,7 @@ export default function Nav() {
           })}
         </ul>
 
-        <div className="flex items-center gap-3">
+        <div className="hidden sm:flex items-center gap-3">
           <Link
             href="https://github.com/jameshualiu"
             target="_blank"
@@ -119,7 +175,82 @@ export default function Nav() {
             <span className="hidden sm:inline">Resume</span>
           </Link>
         </div>
+
+        <button
+          type="button"
+          onClick={() => setMobileMenuOpen((open) => !open)}
+          className="sm:hidden glass-pill w-10 h-10 rounded-full flex items-center justify-center text-[#3b3f5c]"
+          aria-label="Toggle menu"
+          aria-expanded={mobileMenuOpen}
+        >
+          <MenuIcon open={mobileMenuOpen} />
+        </button>
       </div>
+
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.15, ease: "easeInOut" }}
+            className="sm:hidden max-w-5xl mx-auto mt-3 glass-card rounded-[20px] p-3 flex flex-col gap-1"
+          >
+            {navItems.map((item) => {
+              const id = item.toLowerCase();
+              const isActive = activeSection === id;
+              return (
+                <Link
+                  key={item}
+                  href={`#${id}`}
+                  scroll={false}
+                  onClick={(e) => handleNavClick(e, id)}
+                  className={`text-sm px-4 py-2.5 rounded-full transition-colors duration-200 ${
+                    isActive
+                      ? "bg-[#6c5ce7] text-white font-semibold"
+                      : "text-[#3b3f5c] hover:bg-white/50"
+                  }`}
+                >
+                  {item}
+                </Link>
+              );
+            })}
+
+            <div className="flex items-center gap-3 mt-2 px-1">
+              <Link
+                href="https://github.com/jameshualiu"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
+                aria-label="GitHub"
+              >
+                <GitHubIcon />
+              </Link>
+              <Link
+                href="https://linkedin.com/in/jameshualiu"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="glass-pill w-9 h-9 rounded-full flex items-center justify-center text-[#3b3f5c] hover:text-[#2b2b40] transition-colors duration-200"
+                aria-label="LinkedIn"
+              >
+                <LinkedInIcon />
+              </Link>
+              <Link
+                href="https://drive.google.com/file/d/1qRnDHmwKeTUix9lrmkF6mwbyZJ5CnJxi/view?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMobileMenuOpen(false)}
+                className="glass-pill flex items-center gap-1.5 text-[#6c5ce7] text-[11px] font-semibold rounded-full px-3 py-2 hover:bg-white/60 transition-colors duration-200"
+              >
+                <ResumeIcon />
+                <span>Resume</span>
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.nav>
   );
 }
