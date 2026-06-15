@@ -20,10 +20,9 @@ function CurveLine({ side }: { side: "left" | "right" }) {
           stroke="#6c5ce7"
           strokeWidth="2"
           strokeLinecap="round"
-          strokeDasharray="14 18"
           vectorEffect="non-scaling-stroke"
-          animate={{ strokeDashoffset: [0, -320] }}
-          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
+          animate={{ y: [0, 18, 0] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
         />
         <motion.path
           d="M100,-50 C170,10 30,90 100,150 C170,210 30,290 100,350 C170,410 30,490 100,550 C170,610 30,690 100,750 C170,810 30,890 100,950 C170,1010 30,1090 100,1150 C170,1210 30,1240 100,1250"
@@ -31,10 +30,9 @@ function CurveLine({ side }: { side: "left" | "right" }) {
           stroke="#b8c4ff"
           strokeWidth="1.5"
           strokeLinecap="round"
-          strokeDasharray="10 16"
           vectorEffect="non-scaling-stroke"
-          animate={{ strokeDashoffset: [0, 260] }}
-          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
+          animate={{ y: [0, -16, 0] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
         />
       </svg>
     </div>
