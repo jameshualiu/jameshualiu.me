@@ -17,7 +17,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-28 border-t border-white/50">
+    <section id="contact" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12 flex flex-col items-center text-center">
         <FadeUp>
           <p className="text-[#6c5ce7] text-xs tracking-[0.2em] uppercase font-bold mb-3">
@@ -30,8 +30,9 @@ export default function Contact() {
 
         <FadeUp delay={0.1}>
           <p className="text-[#4d5780] text-sm leading-[1.8] max-w-md mb-8">
-            Open to SWE internships and interesting projects — send me a
-            message and I&apos;ll get back to you.
+            Whether if it&apos;s an idea or the next music festival I&apos;m
+            going to — shoot me a message and I&apos;ll get back to you as
+            soon as I can.
           </p>
         </FadeUp>
 

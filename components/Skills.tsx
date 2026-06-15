@@ -17,6 +17,8 @@ import {
   SiApple,
   SiGit,
   SiDocker,
+  SiCloudflare,
+  SiFirebase,
 } from "react-icons/si";
 
 type Tag = { name: string; icon?: IconType; color?: string };
@@ -36,7 +38,6 @@ const categories: { name: string; tags: Tag[] }[] = [
     name: "ML / Computer Vision",
     tags: [
       { name: "PyTorch", icon: SiPytorch, color: "#EE4C2C" },
-      { name: "YOLOv8" },
       { name: "OpenCV", icon: SiOpencv, color: "#5C3EE8" },
       { name: "Claude", icon: SiClaude, color: "#D97757" },
     ],
@@ -57,20 +58,22 @@ const categories: { name: string; tags: Tag[] }[] = [
       { name: "iOS", icon: SiApple, color: "#000000" },
       { name: "Git", icon: SiGit, color: "#F05032" },
       { name: "Docker", icon: SiDocker, color: "#2496ED" },
+      { name: "Cloudflare", icon: SiCloudflare, color: "#F38020" },
+      { name: "Firestore", icon: SiFirebase, color: "#FFCA28" },
     ],
   },
 ];
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-28 border-t border-white/50">
+    <section id="skills" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
           <p className="text-[#6c5ce7] text-xs tracking-[0.2em] uppercase font-bold mb-3">
             Skills
           </p>
           <h2 className="text-[#2b2b40] text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">
-            My Toolbox.
+            My Toolbox
           </h2>
           <p className="text-[#4d5780] text-sm leading-[1.8] max-w-md mb-12">
             The tools I&apos;ve learned and honed.

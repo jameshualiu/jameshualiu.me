@@ -10,7 +10,7 @@ const shipped = [
 
 export default function Work() {
   return (
-    <section id="work" className="py-28 border-t border-white/50">
+    <section id="work" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
           <p className="text-[#6c5ce7] text-xs tracking-[0.2em] uppercase font-bold mb-3">

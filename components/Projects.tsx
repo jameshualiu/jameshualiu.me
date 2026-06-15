@@ -17,7 +17,7 @@ const projects: Project[] = [
     title: "Shuttleye",
     image: "/shuttleye.png",
     desc: "End-to-end computer vision pipeline for badminton: tracks players and the shuttlecock frame-by-frame, segments rallies, and classifies stroke types to generate match analytics.",
-    tags: ["YOLOv8", "OpenCV", "Gemini AI"],
+    tags: ["OpenCV", "React", "Express", "FastAPI", "Cloudflare", "Firestore"],
     links: [
       { label: "GitHub", href: "https://github.com/jameshualiu/badminton-ai-analyst" },
       { label: "View live", href: "https://badminton-ai-analyst.vercel.app/" },
@@ -41,7 +41,7 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-28 border-t border-white/50">
+    <section id="projects" className="py-28">
       <div className="max-w-5xl mx-auto px-6 sm:px-12">
         <FadeUp>
           <p className="text-[#6c5ce7] text-xs tracking-[0.2em] uppercase font-bold mb-3">

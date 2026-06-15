@@ -30,7 +30,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.15 }}
           >
-            Open to SWE internships
+            Open to work
           </motion.p>
 
           <motion.h1
@@ -54,10 +54,10 @@ export default function Hero() {
             transition={{ duration: 0.5, ease: "easeOut", delay: 0.62 }}
           >
             <span className="text-[#2b2b40] font-medium">
-              CS @ UMass — computer vision &amp; machine learning.
-            </span>{" "}
-            I build software for the people using it, not the metrics
-            watching them.
+              CS @ UMass — full stack development, AI &amp; ML.
+            </span>
+            <br />
+            I build software to make people&apos;s lives easier and healthier.
           </motion.p>
 
           <motion.div
