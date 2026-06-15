@@ -16,7 +16,7 @@ const projects = [
   {
     title: "Bangbuck",
     visual: { label: "PREVIEW", bg: "bg-[#b8c4ff]", text: "text-[#2b2b40]" },
-    desc: "A Python tool that scrapes grocery e-commerce product pages and calculates the price-per-gram-of-protein for each item, surfacing the best nutritional value-for-money. Uses a stealth-enabled headless browser to reliably render dynamic product pages, then parses pricing and nutrition data to compute a custom \"value index\" for comparison shopping.",
+    desc: "A Python scraper that calculates price-per-gram-of-protein across grocery sites to surface the best nutritional value-for-money.",
     tags: ["Python", "Web Scraping"],
     links: [] as { label: string; href: string }[],
   },
