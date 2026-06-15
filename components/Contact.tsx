@@ -38,7 +38,7 @@ export default function Contact() {
         <FadeUp delay={0.2}>
           <form
             onSubmit={handleSubmit}
-            className="glass-card rounded-[22px] p-6 sm:p-8 w-full max-w-md flex flex-col gap-4 text-left"
+            className="glass-card rounded-[22px] p-6 sm:p-8 w-full max-w-3xl flex flex-col gap-4 text-left"
           >
             <div className="flex flex-col gap-1.5">
               <label

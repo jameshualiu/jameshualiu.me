@@ -53,62 +53,105 @@ export default function Projects() {
         </FadeUp>
 
         <FadeUp delay={0.1}>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {projects.map((project) => (
-              <div
-                key={project.title}
-                className="glass-card rounded-[20px] p-6"
-              >
-                {project.image ? (
-                  <div className="relative h-[120px] rounded-[14px] overflow-hidden mb-4">
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} preview`}
-                      fill
-                      className="object-cover"
-                    />
+          <div className="flex flex-col gap-6">
+            {(() => {
+              const [featured, ...rest] = projects;
+              return (
+                <>
+                  <div className="glass-card rounded-[20px] p-6 sm:p-8 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:items-center">
+                    <div className="relative h-[200px] sm:h-[280px] rounded-[14px] overflow-hidden">
+                      <Image
+                        src={featured.image!}
+                        alt={`${featured.title} preview`}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
+
+                    <div>
+                      <h3 className="text-[#2b2b40] text-xl font-bold mb-2">
+                        {featured.title}
+                      </h3>
+
+                      <p className="text-[#4d5780] text-sm leading-relaxed mb-4">
+                        {featured.desc}
+                      </p>
+
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {featured.tags.map((tag) => (
+                          <span key={tag} className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      {featured.links.length > 0 && (
+                        <div className="flex gap-4">
+                          {featured.links.map((link) => (
+                            <Link
+                              key={link.label}
+                              href={link.href}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="text-[#6c5ce7] text-sm font-semibold underline-offset-2 hover:underline"
+                            >
+                              {link.label}
+                            </Link>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
-                ) : (
-                  <div
-                    className={`${project.visual?.bg} ${project.visual?.text} h-[120px] rounded-[14px] flex items-center justify-center text-xs font-bold tracking-widest mb-4`}
-                  >
-                    {project.visual?.label}
-                  </div>
-                )}
 
-                <h3 className="text-[#2b2b40] text-lg font-bold mb-2">
-                  {project.title}
-                </h3>
-
-                <p className="text-[#4d5780] text-sm leading-relaxed mb-4">
-                  {project.desc}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span key={tag} className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {project.links.length > 0 && (
-                  <div className="flex gap-4">
-                    {project.links.map((link) => (
-                      <Link
-                        key={link.label}
-                        href={link.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-[#6c5ce7] text-sm font-semibold underline-offset-2 hover:underline"
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    {rest.map((project) => (
+                      <div
+                        key={project.title}
+                        className="glass-card rounded-[20px] p-6"
                       >
-                        {link.label}
-                      </Link>
+                        <div
+                          className={`${project.visual?.bg} ${project.visual?.text} h-[120px] rounded-[14px] flex items-center justify-center text-xs font-bold tracking-widest mb-4`}
+                        >
+                          {project.visual?.label}
+                        </div>
+
+                        <h3 className="text-[#2b2b40] text-lg font-bold mb-2">
+                          {project.title}
+                        </h3>
+
+                        <p className="text-[#4d5780] text-sm leading-relaxed mb-4">
+                          {project.desc}
+                        </p>
+
+                        <div className="flex flex-wrap gap-2 mb-4">
+                          {project.tags.map((tag) => (
+                            <span key={tag} className="bg-white/70 border border-[#6c5ce7]/25 text-[#6c5ce7] text-[11px] font-bold rounded-full px-3 py-1">
+                              {tag}
+                            </span>
+                          ))}
+                        </div>
+
+                        {project.links.length > 0 && (
+                          <div className="flex gap-4">
+                            {project.links.map((link) => (
+                              <Link
+                                key={link.label}
+                                href={link.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-[#6c5ce7] text-sm font-semibold underline-offset-2 hover:underline"
+                              >
+                                {link.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     ))}
                   </div>
-                )}
-              </div>
-            ))}
+                </>
+              );
+            })()}
           </div>
         </FadeUp>
       </div>
