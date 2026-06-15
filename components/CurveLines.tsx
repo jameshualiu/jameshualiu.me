@@ -1,3 +1,6 @@
+"use client";
+import { motion } from "framer-motion";
+
 function CurveLine({ side }: { side: "left" | "right" }) {
   return (
     <div
@@ -11,21 +14,27 @@ function CurveLine({ side }: { side: "left" | "right" }) {
         preserveAspectRatio="none"
         className="w-full h-full"
       >
-        <path
+        <motion.path
           d="M50,0 C120,60 -20,140 50,200 C120,260 -20,340 50,400 C120,460 -20,540 50,600 C120,660 -20,740 50,800 C120,860 -20,940 50,1000 C120,1060 -20,1140 50,1200"
           fill="none"
           stroke="#6c5ce7"
           strokeWidth="2"
           strokeLinecap="round"
+          strokeDasharray="14 18"
           vectorEffect="non-scaling-stroke"
+          animate={{ strokeDashoffset: [0, -320] }}
+          transition={{ duration: 22, repeat: Infinity, ease: "linear" }}
         />
-        <path
+        <motion.path
           d="M100,-50 C170,10 30,90 100,150 C170,210 30,290 100,350 C170,410 30,490 100,550 C170,610 30,690 100,750 C170,810 30,890 100,950 C170,1010 30,1090 100,1150 C170,1210 30,1240 100,1250"
           fill="none"
           stroke="#b8c4ff"
           strokeWidth="1.5"
           strokeLinecap="round"
+          strokeDasharray="10 16"
           vectorEffect="non-scaling-stroke"
+          animate={{ strokeDashoffset: [0, 260] }}
+          transition={{ duration: 26, repeat: Infinity, ease: "linear" }}
         />
       </svg>
     </div>
