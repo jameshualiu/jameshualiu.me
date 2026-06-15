@@ -14,10 +14,10 @@ const projects = [
     ],
   },
   {
-    title: "Lectro",
+    title: "Bangbuck",
     visual: { label: "PREVIEW", bg: "bg-[#b8c4ff]", text: "text-[#2b2b40]" },
-    desc: "Accessibility-focused lecture tool built at HackUMass XIII — live captioning and structured note generation for lecture audio.",
-    tags: ["Python", "Gemini AI"],
+    desc: "A Python tool that scrapes grocery e-commerce product pages and calculates the price-per-gram-of-protein for each item, surfacing the best nutritional value-for-money. Uses a stealth-enabled headless browser to reliably render dynamic product pages, then parses pricing and nutrition data to compute a custom \"value index\" for comparison shopping.",
+    tags: ["Python", "Web Scraping"],
     links: [] as { label: string; href: string }[],
   },
   {
