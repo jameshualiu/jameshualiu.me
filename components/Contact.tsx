@@ -96,7 +96,7 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="self-center bg-[#6c5ce7] text-white text-sm font-semibold px-6 py-[11px] rounded-full shadow-[0_8px_20px_rgba(108,92,231,0.32)] hover:opacity-90 transition-opacity duration-200"
+              className="self-center bg-[#6c5ce7] text-white text-sm font-semibold px-6 py-[11px] rounded-full shadow-[0_8px_20px_rgba(108,92,231,0.32)] cursor-pointer hover:opacity-90 transition-opacity duration-200"
             >
               Send message
             </button>
