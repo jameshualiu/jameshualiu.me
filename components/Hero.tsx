@@ -56,8 +56,6 @@ export default function Hero() {
             <span className="text-[#2b2b40] font-medium">
               CS @ UMass — full stack development, AI &amp; ML.
             </span>
-            <br />
-            I build software to make people&apos;s lives easier and healthier.
           </motion.p>
 
           <motion.div

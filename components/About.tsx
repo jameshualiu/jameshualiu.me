@@ -16,15 +16,14 @@ export default function About() {
         <FadeUp delay={0.1}>
           <div className="glass-card rounded-[18px] p-6 sm:p-8 text-[#3b3f5c] text-sm leading-[1.8] space-y-4">
             <p>
-              Hi I&apos;m James, a rising junior at UMass Amherst studying CS
-              who believes software can improve people&apos;s lives,
-              particularly in fitness and all things physical.
+              Hi I&apos;m James, a junior at UMass Amherst studying CS and an
+              aspiring Software Engineer. I am currently interested in Web
+              development and AI/ML.
             </p>
             <p>
-              When I&apos;m not building, you can catch me bouldering,
-              running, hiking, playing golf or badminton, or just hanging out
-              with my friends. I&apos;m also into fashion and music and love
-              eating my way through whatever city I&apos;m in.
+              When I&apos;m not building, you can catch me playing badminton,
+              golf, running, hiking, playing golf, or just hanging out with my
+              friends.
             </p>
           </div>
         </FadeUp>

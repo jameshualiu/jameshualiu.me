@@ -1,7 +1,7 @@
 "use client";
-import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
+import { AnimatePresence, animate, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import Link from "next/link";
-import { useRef, useState, type MouseEvent } from "react";
+import { useEffect, useRef, useState, type MouseEvent } from "react";
 import { GitHubIcon, LinkedInIcon } from "./icons";
 
 function ResumeIcon() {
@@ -51,25 +51,18 @@ const navItems = ["Skills", "Work", "Projects", "About", "Contact"];
 
 const NAV_OFFSET = 90;
 
-function smoothScrollTo(targetY: number, duration = 700, onComplete?: () => void) {
+// Same spring as the active pill so the page and navbar move in sync.
+const NAV_SPRING = { type: "spring", stiffness: 300, damping: 32 } as const;
+
+function smoothScrollTo(targetY: number) {
   const startY = window.scrollY;
-  const diff = targetY - startY;
-  const startTime = performance.now();
-
-  const easeInOutCubic = (t: number) =>
-    t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-  function step(now: number) {
-    const progress = Math.min((now - startTime) / duration, 1);
-    window.scrollTo(0, startY + diff * easeInOutCubic(progress));
-    if (progress < 1) {
-      requestAnimationFrame(step);
-    } else {
-      onComplete?.();
-    }
-  }
-
-  requestAnimationFrame(step);
+  const controls = animate(startY, targetY, {
+    ...NAV_SPRING,
+    // Kick off with velocity so it doesn't ease in from a standstill.
+    velocity: (targetY - startY) * 5,
+    onUpdate: (y) => window.scrollTo(0, y),
+  });
+  return () => controls.stop();
 }
 
 export default function Nav() {
@@ -77,16 +70,28 @@ export default function Nav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
   const isProgrammaticScroll = useRef(false);
+  const cancelScroll = useRef<(() => void) | null>(null);
+
+  // Hand control back to scroll-spy as soon as the user scrolls themselves.
+  useEffect(() => {
+    const release = () => {
+      cancelScroll.current?.();
+      cancelScroll.current = null;
+      isProgrammaticScroll.current = false;
+    };
+    const events = ["wheel", "touchstart", "keydown"] as const;
+    events.forEach((ev) => window.addEventListener(ev, release, { passive: true }));
+    return () => events.forEach((ev) => window.removeEventListener(ev, release));
+  }, []);
 
   const handleNavClick = (e: MouseEvent, id: string) => {
     e.preventDefault();
     const el = document.getElementById(id);
     if (el) {
+      cancelScroll.current?.();
       isProgrammaticScroll.current = true;
       const targetY = window.scrollY + el.getBoundingClientRect().top - NAV_OFFSET;
-      smoothScrollTo(targetY, 700, () => {
-        isProgrammaticScroll.current = false;
-      });
+      cancelScroll.current = smoothScrollTo(targetY);
     }
     setActiveSection(id);
     setMobileMenuOpen(false);
@@ -126,7 +131,7 @@ export default function Nav() {
                   <motion.div
                     layoutId="nav-active-pill"
                     className="absolute inset-0 bg-[#6c5ce7] rounded-full"
-                    transition={{ type: "spring", stiffness: 400, damping: 32 }}
+                    transition={NAV_SPRING}
                   />
                 )}
                 <Link

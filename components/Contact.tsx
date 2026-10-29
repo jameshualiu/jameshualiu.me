@@ -30,8 +30,7 @@ export default function Contact() {
 
         <FadeUp delay={0.1}>
           <p className="text-[#4d5780] text-sm leading-[1.8] max-w-md mb-8">
-            Whether if it&apos;s an idea or the next music festival I&apos;m
-            going to — shoot me a message and I&apos;ll get back to you as
+            Shoot me a message and I&apos;ll get back to you as
             soon as I can.
           </p>
         </FadeUp>

@@ -8,10 +8,6 @@
   --glass-shadow: 0 8px 24px rgba(90, 100, 160, 0.14);
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
   position: relative;
