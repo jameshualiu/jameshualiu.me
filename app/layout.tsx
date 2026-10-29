@@ -17,12 +17,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={outfit.variable} suppressHydrationWarning>
       <body className="font-outfit">
-        {/* DARK-TEST: /?theme=dark to preview, /?theme=light to reset */}
+        {/* DARK-TEST: dark is the default, /?theme=light to preview light mode (/?theme=dark to switch back) */}
         <Script
           id="dark-test"
           strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
-            __html: `try{var p=new URLSearchParams(location.search).get("theme");if(p==="dark"||p==="light")sessionStorage.setItem("theme",p);if(sessionStorage.getItem("theme")==="dark"){document.documentElement.dataset.theme="dark"}}catch(e){}`,
+            __html: `try{var p=new URLSearchParams(location.search).get("theme");if(p==="dark"||p==="light")sessionStorage.setItem("theme",p);if(sessionStorage.getItem("theme")!=="light"){document.documentElement.dataset.theme="dark"}}catch(e){}`,
           }}
         />
         {children}
