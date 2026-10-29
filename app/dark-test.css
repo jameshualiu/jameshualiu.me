@@ -1,0 +1,89 @@
+/*
+ * THROWAWAY dark-mode experiment (lagoon).
+ * Opt-in only: applies when <html data-theme="dark"> (see ?theme= in layout.tsx).
+ * Light mode is untouched. To remove: delete this file and the DARK-TEST bits in layout.tsx.
+ */
+
+/* lagoon: blue-teal on deep navy */
+html[data-theme="dark"] {
+  --dk-bg: #0b1119;
+  --dk-accent: #4fb3d9;
+  --dk-accent-rgb: 79, 179, 217;
+  --dk-accent-text: #8fd3ee;
+  --dk-on-accent: #04141c;
+  --dk-glass-rgb: 24, 30, 40;
+  --dk-hover-rgb: 214, 226, 240;
+  --dk-curve-2: #3b3470;
+  --dk-text-1: #f2f5f8;
+  --dk-text-2: #cbd2da;
+  --dk-text-3: #959fac;
+  --dk-popover: rgba(18, 23, 31, 0.92);
+}
+
+html[data-theme="dark"] {
+  --glass-bg: rgba(var(--dk-glass-rgb), 0.55);
+  --glass-bg-pill: rgba(var(--dk-glass-rgb), 0.6);
+  --glass-border: rgba(var(--dk-hover-rgb), 0.1);
+  --glass-border-pill: rgba(var(--dk-hover-rgb), 0.14);
+  --glass-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  color-scheme: dark;
+}
+
+/* page background */
+html[data-theme="dark"],
+html[data-theme="dark"] body,
+html[data-theme="dark"] [class~="bg-[#c9d4ee]"] {
+  background-color: var(--dk-bg);
+}
+
+html[data-theme="dark"] .glass-pill {
+  box-shadow: inset 0 1px 0 rgba(var(--dk-hover-rgb), 0.12);
+}
+
+/* text */
+html[data-theme="dark"] [class~="text-[#2b2b40]"] { color: var(--dk-text-1); }
+html[data-theme="dark"] [class~="text-[#3b3f5c]"] { color: var(--dk-text-2); }
+html[data-theme="dark"] [class~="text-[#4d5780]"] { color: var(--dk-text-3); }
+html[data-theme="dark"] [class~="text-[#6c5ce7]"] { color: var(--dk-accent-text); }
+html[data-theme="dark"] [class~="text-[#6c5ce7]/40"] { color: rgba(var(--dk-accent-rgb), 0.5); }
+
+/* accent (purple -> themed) */
+html[data-theme="dark"] [class~="bg-[#6c5ce7]"] {
+  background-color: var(--dk-accent);
+  color: var(--dk-on-accent);
+}
+html[data-theme="dark"] [class*="border-[#6c5ce7]"] { border-color: rgba(var(--dk-accent-rgb), 0.35); }
+/* no glow behind the accent buttons */
+html[data-theme="dark"] [class*="rgba(108,92,231"] { box-shadow: none; }
+html[data-theme="dark"] [class*="focus:ring-[#6c5ce7]"]:focus { --tw-ring-color: rgba(var(--dk-accent-rgb), 0.55); }
+
+/* periwinkle project placeholder -> tinted dark */
+html[data-theme="dark"] [class~="bg-[#b8c4ff]"] { background-color: rgba(var(--dk-hover-rgb), 0.1); }
+
+/* translucent white surfaces */
+html[data-theme="dark"] [class~="bg-white/70"] { background-color: rgba(var(--dk-hover-rgb), 0.07); }
+html[data-theme="dark"] [class~="bg-white/60"] { background-color: rgba(var(--dk-hover-rgb), 0.12); }
+html[data-theme="dark"] [class~="bg-white/85"],
+html[data-theme="dark"] [class~="bg-white/90"] { background-color: var(--dk-popover); }
+html[data-theme="dark"] [class~="hover:bg-white/60"]:hover,
+html[data-theme="dark"] [class~="hover:bg-white/50"]:hover,
+html[data-theme="dark"] [class~="hover:bg-white"]:hover { background-color: rgba(var(--dk-hover-rgb), 0.12); }
+html[data-theme="dark"] [class~="border-white/40"] { border-color: rgba(var(--dk-hover-rgb), 0.12); }
+html[data-theme="dark"] [class~="placeholder:text-[#4d5780]/60"]::placeholder { color: rgba(var(--dk-accent-rgb), 0.45); }
+
+/* background curves */
+html[data-theme="dark"] [stroke="#6c5ce7"] { stroke: var(--dk-accent); }
+html[data-theme="dark"] [stroke="#b8c4ff"] { stroke: var(--dk-curve-2); }
+
+/* skill icons that are pure black would vanish on black */
+html[data-theme="dark"] [style*="color:#000000"],
+html[data-theme="dark"] [style*="color: rgb(0, 0, 0)"] { color: var(--dk-text-1) !important; }
+
+/* soft aurora glows: teal top-left, brand violet right, teal bottom-left */
+html[data-theme="dark"] [class~="bg-[#c9d4ee]"] {
+  background-image:
+    radial-gradient(60vw 50vh at 12% 8%, rgba(var(--dk-accent-rgb), 0.24), transparent 70%),
+    radial-gradient(55vw 50vh at 92% 55%, rgba(108, 92, 231, 0.2), transparent 70%),
+    radial-gradient(60vw 50vh at 20% 95%, rgba(var(--dk-accent-rgb), 0.16), transparent 70%);
+  background-attachment: fixed;
+}
